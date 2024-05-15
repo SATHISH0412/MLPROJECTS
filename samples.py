@@ -27,6 +27,5 @@ v=input("enter the anime name:  ")
 c= Find_recommendation(v)
 
 print("---------------------------------")
-for i in c:
-    print(i)
+print(c)
 print("---------------------------------")
