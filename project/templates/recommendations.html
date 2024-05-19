@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0px;
+            color:white;
+        }
+        /* Define styles for the list items */
+        .recommendation-item {
+            margin-bottom: 10px;
+            padding: 5px;
+            margin:20px;
+            border-radius: 20px;
+            background-color: rgba(99, 99, 95,0.5);
+            height: 300px;
+            width: 210px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 3px 0px 6px black;
+            }
+        
+            .recommendation-item:hover{
+                box-shadow: 10px 2px 8px black;
+                z-index: index 1;
+
+            }
+
+        /* Define styles for the anime title */
+        .anime-title {
+            font-weight: bold;
+            color: #cf6a6a;
+        }
+
+        /* Define styles for the anime details */
+        .anime-details {
+            color: #666;
+            display: flex;
+            text-align: justify;
+        }
+        #container{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .recommendation-item h3{
+            display: block;
+        }
+        .recommendation-item img{
+            height: 120px;
+            width: 100px;
+            position: absolute;
+        }
+        .images{
+            height:120px;
+            width: 100px;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recommendations for "{{ title }}"</h1>
+    <div id="container">
+        {% for anime in recommendations %}
+        <div class="recommendation-item">
+            <div class="images">
+                <img src="https://th.bing.com/th/id/OIP.rJdNNwYFWwVGX_hQNa-94QHaGo?rs=1&pid=ImgDetMain" alt="anime_img">
+            </div>
+            <h3 class="anime-title">{{ anime['title'] }}</h3>
+            <h4>Rating: {{ anime['rating'] }}</h4>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="/">Go Back</a>
+</body>
+</html>
